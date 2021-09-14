@@ -104,6 +104,7 @@ $Total=new DB('total');
 $Mem=new DB('mem');
 $News=new DB('news');
 $Que=new DB('que');
+$Vote=new DB('vote');
 $Log=new DB('log');
 
 if($Total->count(['date'=>date("Y-m-d")])<=0){

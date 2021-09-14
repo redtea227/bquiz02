@@ -33,15 +33,15 @@
     <tr>
       <td class="clo">問卷名稱</td>
       <td class="clo" width="10%">投票數</td>
-      <td class="clo" width="10%">開放</td>
+      <td class="clo" width="10%">狀態</td>
     </tr>
     <?php
-    $ques = $Que->all(['parent' => 0]);
+    $ques = $Que->all();
     foreach ($ques as $key => $value) {
     ?>
       <tr>
         <td><?= $key + 1 . '. ' . $value['text']; ?></td>
-        <td><?= $value['vote']; ?></td>
+        <td><?= $value['total_vote']; ?></td>
         <td>
           <?php
           if ($value['sh'] == 1) {

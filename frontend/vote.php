@@ -6,7 +6,7 @@ $que=$Que->find($_GET['id']);
 <h3><?=$que['text'];?></h3>
 <form action="api/vote.php" method="post">
 <?php 
-$opts=$Que->all(['parent'=>$que['id']]);
+$opts=$Vote->all(['que_id'=>$que['id']]);
 foreach($opts as $opt){
   echo "<p>";
   echo "<input type='radio' name='opt' value='{$opt['id']}'>";

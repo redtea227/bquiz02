@@ -1,12 +1,12 @@
 <?php include_once "../base.php";
-
-$vote=$_POST['opt'];
-$opt=$Que->find($vote);
-$parent=$Que->find($opt['parent']);
-
+// print_r($_POST);
+// 子類選項=>父類主題
+$opt=$Vote->find($_POST['opt']);
+$que=$Que->find($opt['que_id']);
+// print_r($opt);
 $opt['vote']++;
-$parent['vote']++;
-$Que->save($opt);
-$Que->save($parent);
+$que['total_vote']++;
+$Vote->save($opt);
+$Que->save($que);
 
-to("../index.php?do=result&id=".$parent['id']);
+to("../index.php?do=result&id=".$que['id']);

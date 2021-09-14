@@ -6,9 +6,9 @@ $que=$Que->find($_GET['id']);
 <h3><?=$que['text'];?></h3>
 
 <?php 
-$opts=$Que->all(['parent'=>$que['id']]);
+$opts=$Vote->all(['que_id'=>$que['id']]);
 foreach ($opts as $key => $opt) {
-  $rate=round($opt['vote']/$que['vote'],2);
+  $rate=round($opt['vote']/$que['total_vote'],2);
   echo "<p>";
   echo "<div style='width:50%;display:inline-block'>";
   echo $key+1 . ". ";

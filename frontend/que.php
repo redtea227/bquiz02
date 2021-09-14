@@ -8,13 +8,15 @@
     <td width="10%">狀態</td>
   </tr>
   <?php 
-  $ques=$Que->all(['parent'=>0,'sh'=>1]);
+  $ques=$Que->all(['sh'=>1]);
+  // $votes=$Vote->all(['sh'=>1]);
   foreach ($ques as $key => $que) {
+  // foreach ($votes as $key => $vote) {
       ?>
   <tr>
     <td><?=$key+1;?></td>
     <td><?=$que['text'];?></td>
-    <td><?=$que['vote'];?></td>
+    <td><?=$que['total_vote'];?></td>
     <td><a href="index.php?do=result&id=<?=$que['id'];?>">結果</a></td>
     <td>
       <?php 
@@ -29,5 +31,7 @@
     </td>
   </tr>
   <?php
-  }?>
+  // }
+  }
+  ?>
 </table>
